@@ -3,89 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata Fahri</title>
+    <title>Biodata Futuristik Fahri</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #eef2f6;
-            color: #333;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #05060f;
+            overflow-x: hidden;
+            color: #dce3ff;
         }
-        h1 {
-            color: #0056b3;
-            text-align: center;
-            letter-spacing: 2px;
+
+        /* ---------- BACKGROUND FUTURISTIK (GRID CYBER) ---------- */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(0,180,255,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,180,255,0.07) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(0,120,255,0.15), transparent 60%);
+            background-size: 60px 60px, 60px 60px, 100% 100%;
+            pointer-events: none;
+            z-index: -1;
+            transition: transform 0.1s linear;
         }
+
+        /* ---------- CONTAINER ---------- */
         .biodata-container {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 650px;
+            margin: 70px auto;
+            background: rgba(10, 15, 35, 0.55);
+            backdrop-filter: blur(12px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,150,255,0.4);
+            box-shadow: 0 0 25px rgba(0,150,255,0.3);
+            animation: fadeIn 1.2s ease;
         }
-        .biodata-item {
-            margin-bottom: 15px;
-            font-size: 16px;
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            letter-spacing: 3px;
+            color: #00aaff;
+            text-shadow: 0 0 12px #00aaff;
         }
-        .biodata-item strong {
-            display: inline-block;
-            width: 150px;
-            color: #0056b3;
-        }
+
         img {
             display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 50%;
+            margin: 0 auto 20px;
             width: 180px;
             height: 180px;
+            border-radius: 50%;
+            border: 3px solid #00c8ff;
+            box-shadow: 0 0 20px #0099ff;
             object-fit: cover;
-            border: 3px solid #0056b3;
         }
+
+        .biodata-item {
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+
+        .biodata-item strong {
+            width: 150px;
+            display: inline-block;
+            color: #00ccff;
+        }
+
         a {
-            color: #007bff;
+            color: #77c9ff;
             text-decoration: none;
         }
         a:hover {
-            text-decoration: underline;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
         }
 
-        ul {
-            margin-top: 5px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-grid" id="bg"></div>
+
     <div class="biodata-container">
         <h1>FAHRI</h1>
-
-        <!-- Ganti 'fahri.jpg' dengan lokasi foto kamu -->
         <img src="fahri.jpg" alt="Foto Profil">
 
-        <div class="biodata-item">
-            <strong>Nama</strong>: Fahri Fairus
-        </div>
-        <div class="biodata-item">
-            <strong>Tanggal Lahir</strong>: 4 Juli 2009
-        </div>
-        <div class="biodata-item">
-            <strong>Alamat</strong>: Kp. Kaliabang Dukuh
-        </div>
-        <div class="biodata-item">
-            <strong>Email</strong>: 
-            <a href="mailto:emailanda@contoh.com">emailanda@contoh.com</a>
-        </div>
-        <div class="biodata-item">
-            <strong>Telepon</strong>: 0815-1443-9918
-        </div>
-        <div class="biodata-item">
-            <strong>Pendidikan</strong>: SMK IT
-        </div>
-        <div class="biodata-item">
-            <strong>Tentang Saya</strong>: Belajar Coding
-        </div>
+        <div class="biodata-item"><strong>Nama</strong>: Fahri Fairus</div>
+        <div class="biodata-item"><strong>Tanggal Lahir</strong>: 4 Juli 2009</div>
+        <div class="biodata-item"><strong>Alamat</strong>: Kp. Kaliabang Dukuh</div>
+        <div class="biodata-item"><strong>Email</strong>: 
+            <a href="mailto:emailanda@contoh.com">emailanda@contoh.com</a></div>
+        <div class="biodata-item"><strong>Telepon</strong>: 0815-1443-9918</div>
+        <div class="biodata-item"><strong>Pendidikan</strong>: SMK IT</div>
+        <div class="biodata-item"><strong>Tentang Saya</strong>: Belajar Coding</div>
+
         <div class="biodata-item">
             <strong>Sosial Media</strong>:
             <ul>
@@ -94,6 +114,17 @@
             </ul>
         </div>
     </div>
+
+    <!-- ---------- PARALLAX GRID ---------- -->
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            let x = (e.clientX / window.innerWidth - 0.5) * 50;
+            let y = (e.clientY / window.innerHeight - 0.5) * 50;
+
+            document.getElementById("bg").style.transform =
+                `translate(${x}px, ${y}px)`;
+        });
+    </script>
 
 </body>
 </html>
