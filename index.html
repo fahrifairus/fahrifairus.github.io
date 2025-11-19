@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata Futuristik Fahri</title>
+    <title>Biodata Futuristik + Kuis Pengetahuan</title>
 
     <style>
         body {
@@ -13,40 +13,8 @@
             overflow-x: hidden;
             color: #dce3ff;
         }
-        /* Sosial media buttons */
-        .social-list {
-            list-style: none;
-            padding: 0;
-            margin: 8px 0 0 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            background: rgba(0,180,255,0.04);
-            color: #dce3ff;
-            border: 1px solid rgba(0,150,255,0.12);
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: transform .12s ease, box-shadow .12s ease;
-        }
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 22px rgba(0,160,255,0.12);
-        }
-        .social-link svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
 
-        /* ---------- BACKGROUND FUTURISTIK GRID ---------- */
+        /* BACKGROUND GRID */
         .bg-grid {
             position: fixed;
             top: 0;
@@ -57,209 +25,167 @@
                 linear-gradient(rgba(0,180,255,0.07) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0,180,255,0.07) 1px, transparent 1px),
                 radial-gradient(circle at 50% 50%, rgba(0,120,255,0.15), transparent 60%);
-            background-size: 60px 60px, 60px 60px, 100% 100%;
+            background-size: 60px 60px;
             pointer-events: none;
             z-index: -2;
             transition: transform 0.35s ease-out;
         }
 
-        /* ---------- CONTAINER ---------- */
+        /* BIODATA */
         .biodata-container {
             max-width: 650px;
             margin: 70px auto;
-            background: rgba(10, 15, 35, 0.6);
+            background: rgba(10,15,35,0.6);
             backdrop-filter: blur(12px);
             padding: 35px;
             border-radius: 20px;
             border: 1px solid rgba(0,150,255,0.45);
             box-shadow: 0 0 25px rgba(0,150,255,0.3);
-            transform: translateY(40px);
-            opacity: 0;
-            animation: fadeSlideIn 1.3s ease forwards;
-        }
-
-        @keyframes fadeSlideIn {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             text-align: center;
-            font-size: 36px;
-            letter-spacing: 3px;
             color: #00aaff;
             text-shadow: 0 0 12px #00aaff;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: titleFade 1.4s ease forwards 0.4s;
-        }
-
-        @keyframes titleFade {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
+            font-size: 36px;
         }
 
         img.profile-photo {
             display: block;
-            margin: 0 auto 20px;
+            margin: 0 auto;
             width: 180px;
             height: 180px;
             border-radius: 50%;
             border: 3px solid #00c8ff;
             box-shadow: 0 0 20px #0099ff;
             object-fit: cover;
-            opacity: 0;
-            transform: scale(0.6);
-            animation: popIn 1.2s ease forwards 0.7s;
-        }
-
-        @keyframes popIn {
-            0% { opacity: 0; transform: scale(0.6); }
-            100% { opacity: 1; transform: scale(1); }
         }
 
         .biodata-item {
-            margin-bottom: 15px;
             font-size: 17px;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: fadeItem 1s ease forwards;
+            margin-top: 15px;
         }
-
-        .biodata-item:nth-child(n) {
-            animation-delay: calc(1s + var(--i) * 0.12s);
-        }
-
-        @keyframes fadeItem {
-            0% { opacity: 0; transform: translateX(-20px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
-
         .biodata-item strong {
-            width: 150px;
             display: inline-block;
-            color: #00ccff;
+            width: 150px;
+            color: #00c8ff;
         }
 
-        /* ---------- HIU ROBOT ---------- */
+        /* SHARK FOLLOW */
         #sharkbot {
             position: fixed;
             width: 80px;
-            height: auto;
             pointer-events: none;
+            filter: drop-shadow(0 0 6px #00eaff);
             z-index: 999;
-            transition: transform 0.2s ease-out;
-            filter: drop-shadow(0 0 6px #00cfff);
-            opacity: 0;
-            animation: sharkFade 1.5s ease forwards 1s;
         }
 
-        @keyframes sharkFade {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        /* QUIZ PANEL */
+        #quizPanel {
+            max-width: 520px;
+            margin: 40px auto;
+            background: rgba(10,20,40,0.7);
+            border: 1px solid #00c8ff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px #00aaff;
+        }
+
+        #question {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        #answerInput {
+            padding: 12px;
+            width: 80%;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        #submitAnswer, #nextQuestion {
+            padding: 10px 20px;
+            background: #00aaff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        #submitAnswer:hover, #nextQuestion:hover {
+            background: #00eaff;
+            box-shadow: 0 0 15px #00eaff;
+        }
+
+        #score {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        #resultMessage {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
         }
 
     </style>
 </head>
+
 <body>
 
-    <!-- BACKGROUND GRID -->
     <div class="bg-grid" id="bg"></div>
 
-    <!-- HIU ROBOT KARTUN -->
-    <img id="sharkbot" src="sharkbot.png" alt="robot shark">
+    <img id="sharkbot" src="sharkbot.png">
 
+    <!-- BIODATA -->
     <div class="biodata-container">
         <h1>FAHRI</h1>
-        <img class="profile-photo" src="fahri.jpg" alt="Foto Profil">
 
-        <div class="biodata-item" style="--i:1"><strong>Nama</strong>: Fahri Fairus</div>
-        <div class="biodata-item" style="--i:2"><strong>Tanggal Lahir</strong>: 4 Juli 2009</div>
-        <div class="biodata-item" style="--i:3"><strong>Alamat</strong>: Kp. Kaliabang Dukuh</div>
-        <div class="biodata-item" style="--i:4"><strong>Email</strong>: 
+        <img class="profile-photo" src="fahri.jpg">
+
+        <div class="biodata-item"><strong>Nama</strong>: Fahri Fairus</div>
+        <div class="biodata-item"><strong>Tgl Lahir</strong>: 4 Juli 2009</div>
+        <div class="biodata-item"><strong>Alamat</strong>: Kaliabang Dukuh</div>
+        <div class="biodata-item"><strong>Email</strong>: 
             <a href="mailto:fahrifairus42@gmail.com">fahrifairus42@gmail.com</a></div>
-        <div class="biodata-item" style="--i:5"><strong>Telepon</strong>: 0815-1443-9918</div>
-        <div class="biodata-item" style="--i:6"><strong>Sekolah</strong>: SMKIT Nurulqolbi</div>
-        <div class="biodata-item" style="--i:7"><strong>Tentang Saya</strong>: Belajar Coding</div>
-        <div class="biodata-item" style="--i:8"><strong>Website</strong>: <a href="https://fahrifairus.github.io/">https://fahrifairus.github.io/</a></div>
-
-        <div class="biodata-item" style="--i:8">
-            <strong>Sosial Media</strong>:
-            <ul class="social-list">
-                <li>
-                    <a class="social-link" href="https://www.instagram.com/pahrypaii/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <!-- Instagram -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm5.2-2.6a1.05 1.05 0 1 0 1.05 1.05A1.05 1.05 0 0 0 17.2 5.9z"/></svg>
-                        Instagram
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <!-- LinkedIn -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 4.98 8.5 2.5 2.5 0 1 1 4.98 3.5zM3 9h4v12H3zM9 9h3.8v1.6h.1a4.16 4.16 0 0 1 3.75-2.06C19.4 8.54 21 10.7 21 14.2V21H17v-6.2c0-1.48-.03-3.38-2.06-3.38C12.92 11.42 12 13 12 15.4V21H9z"/></svg>
-                        LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <!-- GitHub -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 .5A12 12 0 0 0 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.7.7 2.2 1.1.1-.8.4-1.4.7-1.8-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.6.1-3.4 0 0 1-.3 3.3 1.2A11.2 11.2 0 0 1 12 7.6c1 0 2 .1 2.9.4 2.3-1.5 3.3-1.2 3.3-1.2.6 1.8.2 3.1.1 3.4.8.9 1.2 2 1.2 3.3 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 24 12.5 12 12 0 0 0 12 .5z"/></svg>
-                        GitHub
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-                        <!-- X / Twitter -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 5.9c-.6.3-1.3.5-2 .6.7-.4 1.3-1.1 1.6-2-.6.4-1.4.6-2.2.8A3.9 3.9 0 0 0 12 9.5c0 .3 0 .6.1.9C8.1 10.3 5 8.1 2.9 5.1c-.3.6-.5 1.4-.5 2.2 0 1.4.7 2.6 1.8 3.3-.5 0-1-.2-1.5-.4v.1c0 2.1 1.5 3.8 3.5 4.2-.4.1-.8.1-1.2.1-.3 0-.6 0-.9-.1.6 1.9 2.3 3.3 4.4 3.4A7.9 7.9 0 0 1 2 20.2 11.2 11.2 0 0 0 8.2 22c6.1 0 9.4-5 9.4-9.4v-.4c.7-.5 1.3-1.1 1.8-1.8-.6.3-1.3.6-2 .7z"/></svg>
-                        X
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <!-- YouTube -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 7.2s-.2-1.7-.8-2.4c-.8-1-1.7-1-2.1-1.1C16.6 3.5 12 3.5 12 3.5h-.1s-4.6 0-8.6.2c-.5 0-1.4.1-2.2 1.1C.4 5.5.2 7.2.2 7.2S0 9 .0 10.8v1.4C0 14 .2 15.8.2 15.8s.2 1.7.8 2.4c.8 1 1.9 1 2.4 1.1 1.7.1 7.2.2 7.2.2s4.6 0 8.6-.2c.5 0 1.4-.1 2.2-1.1.6-.7.8-2.4.8-2.4s.2-1.8.2-3.6v-1.4c0-1.8-.2-3.6-.2-3.6zM9.8 15.1V8.9l5.3 3.1-5.3 3.1z"/></svg>
-                        YouTube
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <!-- Facebook -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 12.1C22 6.6 17.5 2 12 2S2 6.6 2 12.1c0 5 3.7 9.1 8.5 9.9v-7H8.1v-2.9h2.4V9.3c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .1 2 .1v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h2.5l-.4 2.9h-2.1v7c4.8-.8 8.5-4.9 8.5-9.9z"/></svg>
-                        Facebook
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                        <!-- TikTok -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 3v7.2A4.8 4.8 0 1 1 11.2 6V7.2A2.8 2.8 0 1 0 14 10v7a4 4 0 1 1-4-4V3z"/></svg>
-                        TikTok
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                        <!-- Telegram -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 3L2 11.5l5 1.9L9 21l3.9-2.3L20 22z"/></svg>
-                        Telegram
-                    </a>
-                </li>
-                <li>
-                    <a class="social-link" href="https://wa.me/6281514439918" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                        <!-- WhatsApp -->
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15.2L2 22l4.1-1.1A10 10 0 1 0 12 2zm.1 17.2c-.8 0-1.4-.2-2.1-.5l-.1-.1-2.5.7.7-2.4-.2-.2A7 7 0 1 1 19 9.6v.1A6.8 6.8 0 0 1 12.1 19.2z"/></svg>
-                        WhatsApp
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <div class="biodata-item"><strong>Telepon</strong>: 0815-1443-9918</div>
+        <div class="biodata-item"><strong>Sekolah</strong>: SMKIT Nurulqolbi</div>
+        <div class="biodata-item"><strong>Tentang Saya</strong>: Belajar Coding</div>
+        <div class="biodata-item"><strong>Website</strong>: 
+            <a href="https://fahrifairus.github.io/">Website Saya</a></div>
     </div>
 
-    <!-- SCRIPT PARALLAX + HIU ROBOT FOLLOW -->
+    <!-- QUIZ GAME -->
+    <div id="quizPanel">
+        <h2>🎮 Kuis Pengetahuan Umum Futuristik</h2>
+
+        <p id="question">Klik Next untuk mulai</p>
+
+        <input type="text" id="answerInput" placeholder="Jawaban kamu...">
+
+        <br>
+
+        <button id="submitAnswer">Jawab</button>
+        <button id="nextQuestion">Next</button>
+
+        <p id="resultMessage"></p>
+        <p id="score">Score: 0</p>
+    </div>
+
+    <!-- SHARK FOLLOW SCRIPT -->
     <script>
         const shark = document.getElementById("sharkbot");
         const bg = document.getElementById("bg");
 
         let mouseX = 0, mouseY = 0;
-        let sharkX = 0, sharkY = 0;
+        let sx = 0, sy = 0;
 
         document.addEventListener("mousemove", e => {
             mouseX = e.clientX;
@@ -271,17 +197,60 @@
         });
 
         function animateShark() {
-            sharkX += (mouseX - sharkX) * 0.08;
-            sharkY += (mouseY - sharkY) * 0.08;
+            sx += (mouseX - sx) * 0.08;
+            sy += (mouseY - sy) * 0.08;
 
-            shark.style.left = sharkX + "px";
-            shark.style.top = sharkY + "px";
-
-            shark.style.transform = `rotate(${(mouseX - sharkX) * 0.05}deg)`;
+            shark.style.left = sx + "px";
+            shark.style.top = sy + "px";
 
             requestAnimationFrame(animateShark);
         }
         animateShark();
+    </script>
+
+    <!-- QUIZ SCRIPT -->
+    <script>
+        let score = 0;
+
+        const questions = [
+            {q: "Siapa presiden pertama Indonesia?", a: "soekarno"},
+            {q: "Apa ibu kota Indonesia?", a: "jakarta"},
+            {q: "Planet apa yang disebut planet merah?", a: "mars"},
+            {q: "Berapa hasil dari 5 x 6?", a: "30"},
+            {q: "Siapa penemu lampu pijar?", a: "thomas edison"},
+            {q: "Gunung tertinggi di Indonesia?", a: "puncak jaya"},
+            {q: "Bahasa resmi Indonesia?", a: "bahasa indonesia"},
+            {q: "Bendera Indonesia warnanya apa?", a: "merah putih"}
+        ];
+
+        let currentQuestion = null;
+
+        function nextQuestion() {
+            let index = Math.floor(Math.random() * questions.length);
+            currentQuestion = questions[index];
+
+            document.getElementById("question").innerText = currentQuestion.q;
+            document.getElementById("answerInput").value = "";
+            document.getElementById("resultMessage").innerText = "";
+        }
+
+        document.getElementById("nextQuestion").onclick = nextQuestion;
+
+        document.getElementById("submitAnswer").onclick = () => {
+            let userAnswer = document.getElementById("answerInput").value.toLowerCase().trim();
+
+            if (!currentQuestion) return;
+
+            if (userAnswer === currentQuestion.a) {
+                score += 10;
+                document.getElementById("resultMessage").innerHTML = "<span style='color:#00ff99;'>✔ Benar!</span>";
+            } else {
+                document.getElementById("resultMessage").innerHTML = 
+                    "<span style='color:#ff4444;'>❌ Salah!</span><br>Jawaban benar: " + currentQuestion.a;
+            }
+
+            document.getElementById("score").innerText = "Score: " + score;
+        };
     </script>
 
 </body>
