@@ -52,7 +52,7 @@
 
         img.profile-photo {
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 20px;
             width: 180px;
             height: 180px;
             border-radius: 50%;
@@ -63,12 +63,40 @@
 
         .biodata-item {
             font-size: 17px;
-            margin-top: 15px;
+            margin: 10px 0;
+            text-align: left; /* kiri */
         }
         .biodata-item strong {
             display: inline-block;
             width: 150px;
             color: #00c8ff;
+        }
+
+        /* SOCIAL ICONS */
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00ff88, #00cfff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 12px #00eaff;
+        }
+        .social-icon img {
+            width: 60%;
+            height: 60%;
+        }
+        .social-icon:hover {
+            transform: scale(1.2) rotate(-5deg);
+            box-shadow: 0 0 20px #00eaff, 0 0 35px #00ff99;
         }
 
         /* SHARK FOLLOW */
@@ -134,7 +162,6 @@
             font-size: 18px;
             font-weight: bold;
         }
-
     </style>
 </head>
 
@@ -160,6 +187,16 @@
         <div class="biodata-item"><strong>Tentang Saya</strong>: Belajar Coding</div>
         <div class="biodata-item"><strong>Website</strong>: 
             <a href="https://fahrifairus.github.io/">Website Saya</a></div>
+
+        <!-- SOCIAL ICONS -->
+        <div class="social-links">
+            <a href="https://wa.me/081514439918" target="_blank" class="social-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WA">
+            </a>
+            <a href="https://www.instagram.com/pahrypaii/" target="_blank" class="social-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="IG">
+            </a>
+        </div>
     </div>
 
     <!-- QUIZ GAME -->
